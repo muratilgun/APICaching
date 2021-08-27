@@ -28,6 +28,7 @@ namespace UsingRedis
         {
 
             services.AddControllers();
+            services.AddStackExchangeRedisCache(options => options.Configuration = "localhost:6379");
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UsingRedis", Version = "v1" });

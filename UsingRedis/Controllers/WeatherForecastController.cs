@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
 
 namespace UsingRedis.Controllers
 {
@@ -17,23 +19,41 @@ namespace UsingRedis.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        private readonly IDistributedCache _distributedCache;
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IDistributedCache distributedCache)
         {
             _logger = logger;
+            _distributedCache = distributedCache;
         }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var cachedData = _distributedCache.GetString("weatherdata");
+            if (string.IsNullOrEmpty(cachedData))
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+                var rng = new Random();
+                var data = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+                    {
+                        Date = DateTime.Now.AddDays(index),
+                        TemperatureC = rng.Next(-20, 55),
+                        Summary = Summaries[rng.Next(Summaries.Length)]
+                    })
+                    .ToArray();
+
+                var cacheOptions = new DistributedCacheEntryOptions()
+                {
+                    AbsoluteExpiration = DateTime.Now.AddSeconds(10)
+                };
+                _distributedCache.SetString("weatherdata", JsonConvert.SerializeObject(data), cacheOptions);
+                return data;
+
+            }
+            else
+            {
+                return JsonConvert.DeserializeObject<IEnumerable<WeatherForecast>>(cachedData);
+            }
+
         }
     }
 }
