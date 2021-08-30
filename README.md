@@ -76,7 +76,8 @@ Redis, sunucu yeniden başlatıldığında önbelleğin kaybolmaması için disk
 
 StackOverflow ekibi, diğer StackExchange web sitelerinin yanı sıra stackoverflow.com'u hızlandırmak için yıllardır büyük bir etkiyle kullandıklarından, Redis ile olan deneyimleri hakkında bazı ilginç makaleler yayınladı.
 </p>
-[StackOverflow'tan Nick Craver, 2019'daki tipik Redis kullanımını açıklamaya devam ediyor:](https://nickcraver.com/blog/2019/08/06/stack-overflow-how-we-do-app-caching/)
+
+[StackOverflow'tan Nick Craver, 2019'daki tipik Redis kullanımını açıklamaya devam ediyor :](https://nickcraver.com/blog/2019/08/06/stack-overflow-how-we-do-app-caching/)
 
 - *Redis fiziksel sunucularımız 256 GB belleğe sahiptir, ancak 96 GB'tan daha az kullanılır.*
 - *Günde 1.586.553.473 komut işlenir (replikalar nedeniyle tüm örneklerde 3.726.580.897 komut ve saniyede 86.982 tepe).*
