@@ -6,8 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
+using DistributedCachingUsingSql;
 
-namespace DistributedCachingUsingRedis.Controllers
+namespace DistributedCachingUsingSql.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -34,11 +35,11 @@ namespace DistributedCachingUsingRedis.Controllers
             {
                 var rng = new Random();
                 var data = Enumerable.Range(1, 5).Select(index => new WeatherForecast
-                    {
-                        Date = DateTime.Now.AddDays(index),
-                        TemperatureC = rng.Next(-20, 55),
-                        Summary = Summaries[rng.Next(Summaries.Length)]
-                    })
+                {
+                    Date = DateTime.Now.AddDays(index),
+                    TemperatureC = rng.Next(-20, 55),
+                    Summary = Summaries[rng.Next(Summaries.Length)]
+                })
                     .ToArray();
 
                 var cacheOptions = new DistributedCacheEntryOptions()

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedCachingUsingRedi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InMemoryCaching", "InMemoryCaching\InMemoryCaching.csproj", "{F7D84238-664B-4462-AAB4-0D6304E3975C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCachingUsingSql", "DistributeCachingUsingSql\DistributedCachingUsingSql.csproj", "{7C90CF09-26A8-4A03-B4F6-2F9B20F4D0E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F7D84238-664B-4462-AAB4-0D6304E3975C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7D84238-664B-4462-AAB4-0D6304E3975C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7D84238-664B-4462-AAB4-0D6304E3975C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C90CF09-26A8-4A03-B4F6-2F9B20F4D0E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C90CF09-26A8-4A03-B4F6-2F9B20F4D0E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C90CF09-26A8-4A03-B4F6-2F9B20F4D0E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C90CF09-26A8-4A03-B4F6-2F9B20F4D0E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

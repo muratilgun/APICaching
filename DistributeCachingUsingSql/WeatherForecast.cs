@@ -1,6 +1,6 @@
 using System;
 
-namespace DistributedCachingUsingRedis
+namespace DistributedCachingUsingSql
 {
     public class WeatherForecast
     {

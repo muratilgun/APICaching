@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DistributedCachingUsingRedis
+namespace DistributedCachingUsingSql
 {
     public class Startup
     {
@@ -28,10 +28,17 @@ namespace DistributedCachingUsingRedis
         {
 
             services.AddControllers();
-            services.AddStackExchangeRedisCache(options => options.Configuration = "localhost:6379");
+
+            services.AddDistributedSqlServerCache(options =>
+            {
+                options.ConnectionString = "Data Source=.;Initial Catalog=denemedb;Integrated Security=True";
+                options.SchemaName = "dbo";
+                options.TableName = "CacheTable";
+            });
+
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DistributedCachingUsingRedis", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "UsingRedis", Version = "v1" });
             });
         }
 
@@ -42,7 +49,7 @@ namespace DistributedCachingUsingRedis
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DistributedCachingUsingRedis v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UsingRedis v1"));
             }
 
             app.UseHttpsRedirection();
@@ -51,10 +58,7 @@ namespace DistributedCachingUsingRedis
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
