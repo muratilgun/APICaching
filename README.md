@@ -74,8 +74,6 @@ Distributed Cache yönteminde, Cache dataları uygulamanın ayağa kalktığı h
 
 Redis, sunucu yeniden başlatıldığında önbelleğin kaybolmaması için diskte kalıcı olma seçeneğine de sahiptir. Ayrıca Redis, önbelleği birden çok sunucuya yayan bir kümede de oluşturulabilir. Teknik olarak Redis, birincil veritabanınız olarak da kullanılabilir, ancak daha sık olarak, kalıcı veriler için tasarlanmış daha zengin özelliklere sahip veritabanlarındaki yükü azaltmak için onu bir önbellek olarak kullanırız.
 
-Önbelleğe almanın yoğun bir şekilde kullanılabileceğini bilmek, diğer hususları da gerçekten değiştirebilir. Yukarıda NoSQL veritabanlarının kolay ölçeklenebilirliğinden bahsetmiştim. Ancak Redis, önbelleğe alma yoluyla veritabanı iş yükünüzün yüzde 95'ini ortadan kaldırıyorsa, aslında tek bir SQL veritabanı örneğine bağlı kalmak uygun olabilir.
-
 StackOverflow ekibi, diğer StackExchange web sitelerinin yanı sıra stackoverflow.com'u hızlandırmak için yıllardır büyük bir etkiyle kullandıklarından, Redis ile olan deneyimleri hakkında bazı ilginç makaleler yayınladı.
 </p>
 [StackOverflow'tan Nick Craver, 2019'daki tipik Redis kullanımını açıklamaya devam ediyor:](https://nickcraver.com/blog/2019/08/06/stack-overflow-how-we-do-app-caching/)
