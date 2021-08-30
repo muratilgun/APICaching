@@ -44,7 +44,7 @@ namespace DistributedCachingUsingSql.Controllers
 
                 var cacheOptions = new DistributedCacheEntryOptions()
                 {
-                    AbsoluteExpiration = DateTime.Now.AddSeconds(10)
+                    AbsoluteExpiration = DateTime.Now.AddMinutes(10)
                 };
                 _distributedCache.SetString("weatherdata", JsonConvert.SerializeObject(data), cacheOptions);
                 return data;
