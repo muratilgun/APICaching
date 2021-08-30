@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingRedis", "UsingRedis\UsingRedis.csproj", "{76BB4AAA-F5F1-4F36-B28D-4F82301F6DCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedCachingUsingRedis", "UsingRedis\DistributedCachingUsingRedis.csproj", "{76BB4AAA-F5F1-4F36-B28D-4F82301F6DCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
